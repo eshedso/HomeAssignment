@@ -1,0 +1,22 @@
+img[role=navbaricons] {
+    width: 2rem;
+    height: 2rem;
+
+}
+
+a[role=nav-text] {
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+a:link::before {
+    color: #80f7e3;
+}
+
+a:visited {
+    color: #80f7e3;
+}
+
+div[role=nav] {
+    height: 10rem;
+}

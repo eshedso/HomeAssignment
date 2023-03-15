@@ -21,9 +21,9 @@ class Employee(models.Model):
     age = models.IntegerField(null=False)
     is_senior = models.BooleanField(default=False, null=False)
     favorite_color = models.ForeignKey(
-        Color, on_delete=models.CASCADE, null=False)
+        Color, on_delete=models.CASCADE, null=True, blank=True)
     Department = models.ForeignKey(
-        Department, on_delete=models.CASCADE, null=False)
+        Department, on_delete=models.CASCADE,  null=True, blank=True)
     # age validation
 
     def clean_age(self):
