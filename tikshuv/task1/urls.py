@@ -1,7 +1,9 @@
-from django.urls import path
+from django.urls import path, re_path
 
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path(r'', views.indexView, name='indexView'),
+    re_path(r'^(?P<department_name>[a-zA-Z]+)/$',
+            views.departmentView, name="DepartmentView")
 ]
