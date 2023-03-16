@@ -4,17 +4,13 @@
         {% for j in i%}
             <div class="card text-center" >
                 <div class="card-body" >
-                    <form action = "/task1/submit/" method = "post">
-                        <div class="row">
-                            <div class="col">
-                            </div>
-                        </div>
+                    <form action = "/task1/submit/" method = "post" id = "form{{j.id}}">
                         <div class="row">
                             <div class="col">
                                 <label for="id" class="form-label">ID:</label>
                             </div>
                             <div class="col">
-                                <label id="id" class="form-label">{{j.id}}</label>
+                                <input id="id" class="form-label" value = {{j.id}} disabled></input>
                             </div>
                         </div>
                         <div class="row">
@@ -22,7 +18,7 @@
                                 <label for="name" class="form-label">Name:</label>
                             </div>
                             <div class="col">
-                                <label id="name" class="form-label">{{j.name}}</label>
+                                <input id="name" class="form-label" value = {{j.name}} disabled></input>
                             </div>
                         </div>
                         <div class="row">
@@ -30,7 +26,7 @@
                                 <label for="age" class="form-label">Age:</label>
                             </div>
                             <div class="col">
-                                <label id="age" class="form-label">{{j.age}}</label>
+                                <input id="age" class="form-label" value = {{j.age}} disabled></input>
                             </div>
                         </div>
                         <div class="row">
@@ -38,7 +34,7 @@
                                 <label class="form-check-label" for="senior">Senior</label>
                             </div>
                             <div class="col">
-                                    <input type="checkbox" class="form-check-input" id="senior"  {% if j.is_senior %} checked  {% endif %}>
+                                <input type="checkbox" class="form-check-input" id="senior"  {% if j.is_senior %} checked  {% endif %}>
                             </div>
                         </div>
                         <div class="row">
@@ -46,7 +42,7 @@
                                 <label class="form-check-label" for="color">Favorite Color</label>
                             </div>
                             <div class = "col">
-                                <select id = "color" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <select form="form{{j.id}}" id = "color" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <ul class="dropdown-menu">
                                         <option><label class="dropdown-item"></label></option>
                                         {% for k in colors %}

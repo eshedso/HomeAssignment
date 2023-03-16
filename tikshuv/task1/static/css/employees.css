@@ -2,8 +2,11 @@
     width: 18rem;
 }
 
+input {
+    width: 7rem;
+}
+
 .card-body {
-    width: 18rem;
     width: 18rem;
     border-style: outset;
     border-radius: 20px;
