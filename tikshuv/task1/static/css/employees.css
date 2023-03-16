@@ -1,0 +1,15 @@
+.card {
+    width: 18rem;
+}
+
+.card-body {
+    width: 18rem;
+    width: 18rem;
+    border-style: outset;
+    border-radius: 20px;
+    border-color: black;
+}
+
+.col {
+    padding-bottom: 5px;
+}

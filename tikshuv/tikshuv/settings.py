@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'mathfilters',
     'task1',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -75,16 +76,15 @@ WSGI_APPLICATION = 'tikshuv.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-   'default': {
-       'ENGINE': 'django.db.backends.postgresql',
-       'NAME':'homeassignment',
-       'USER': 'postgres',
-       'PASSWORD': '7kanunu7',
-       'HOST': 'localhost',
-       'PORT': '5432',
-   }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'homeassignment',
+        'USER': 'postgres',
+        'PASSWORD': '7kanunu7',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
 }
-
 
 
 # Password validation

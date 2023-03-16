@@ -14,8 +14,15 @@ def indexView(request):
 
 
 def departmentView(request, department_name):
-    try:
-        queryset = models.Department.objects.get(name=department_name)
-        return HttpResponse(department_name)
-    except:
-        return HttpResponse("404 NOT FOUND")
+   # try:
+    departmentset = models.Department.objects.get(name=department_name)
+    employeeset = list(models.Employee.objects.filter(
+        Department_id=departmentset.id))
+    colorset = models.Color.objects.all()
+    context = {}
+    context['employees'] = [employeeset[counter: counter+5]
+                            for counter in range(0, len(employeeset), 5)]
+    context['colors'] = list(colorset)
+    return render(request, 'html/employees.html', context)
+    # except:
+ #   pass
