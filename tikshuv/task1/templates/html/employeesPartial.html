@@ -2,15 +2,16 @@
 {% for i in employees%}
     <div class="card-group">
         {% for j in i%}
-            <div class="card text-center" >
-                <div class="card-body" >
-                    <form action = "/task1/submit/" method = "post" id = "form{{j.id}}">
+            <div class="card text-center border-0" >
+                <div class="card-body mx-auto" >
+                    <form action = "/task1/{{department}}/" method = "post" id = "form{{j.id}}">
+                        {% csrf_token %}
                         <div class="row">
                             <div class="col">
                                 <label for="id" class="form-label">ID:</label>
                             </div>
                             <div class="col">
-                                <input id="id" class="form-label" value = {{j.id}} disabled></input>
+                                <input name ="id" id="id" class="form-label" value = {{j.id}} readonly></input>
                             </div>
                         </div>
                         <div class="row">
@@ -18,7 +19,7 @@
                                 <label for="name" class="form-label">Name:</label>
                             </div>
                             <div class="col">
-                                <input id="name" class="form-label" value = {{j.name}} disabled></input>
+                                <input id="name" class="form-label" value = {{j.name}} readonly></input>
                             </div>
                         </div>
                         <div class="row">
@@ -26,7 +27,7 @@
                                 <label for="age" class="form-label">Age:</label>
                             </div>
                             <div class="col">
-                                <input id="age" class="form-label" value = {{j.age}} disabled></input>
+                                <input id="age" class="form-label" value = {{j.age}} readonly></input>
                             </div>
                         </div>
                         <div class="row">
@@ -34,7 +35,7 @@
                                 <label class="form-check-label" for="senior">Senior</label>
                             </div>
                             <div class="col">
-                                <input type="checkbox" class="form-check-input" id="senior"  {% if j.is_senior %} checked  {% endif %}>
+                                <input type="checkbox" class="form-check-input" id="senior" name = "is_senior"  {% if j.is_senior %}  checked  {% endif %}>
                             </div>
                         </div>
                         <div class="row">
@@ -42,9 +43,8 @@
                                 <label class="form-check-label" for="color">Favorite Color</label>
                             </div>
                             <div class = "col">
-                                <select form="form{{j.id}}" id = "color" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <select name = "color" form="form{{j.id}}" id = "color" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <ul class="dropdown-menu">
-                                        <option><label class="dropdown-item"></label></option>
                                         {% for k in colors %}
                                             <option {% if k.id == j.favorite_color_id%} selected {%endif%}><label class="dropdown-item">{{k.name}}</label></option>
                                         {%endfor%}
@@ -52,7 +52,7 @@
                                 </select>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-success">Submit</button>
                     </form>
                 </div>
             </div>

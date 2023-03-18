@@ -5,15 +5,29 @@ from django.core.exceptions import ValidationError
 
 # Colors Model
 class Color(models.Model):
-    name = models.CharField(max_length=15, null=False)
+    name = models.CharField(max_length=15, null=False, unique=True)
 
 # Department Model
 
 
 class Department(models.Model):
-    name = models.CharField(max_length=20, null=False)
+    name = models.CharField(max_length=20, null=False, unique=True)
 
 # Employee Model
+
+
+def get_default_color():
+    try:
+        return Color.objects.get(name='White').id
+    except:
+        return None
+
+
+def get_default_department():
+    try:
+        return Department.objects.get(id=1).id
+    except:
+        return None
 
 
 class Employee(models.Model):
@@ -21,9 +35,9 @@ class Employee(models.Model):
     age = models.IntegerField(null=False)
     is_senior = models.BooleanField(default=False, null=False)
     favorite_color = models.ForeignKey(
-        Color, on_delete=models.CASCADE, null=True, blank=True)
+        Color, on_delete=models.CASCADE, default=get_default_color)
     Department = models.ForeignKey(
-        Department, on_delete=models.CASCADE,  null=True, blank=True)
+        Department, on_delete=models.CASCADE, default=get_default_department)
     # age validation
 
     def clean_age(self):

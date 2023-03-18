@@ -20,3 +20,13 @@ a:visited {
 div[role=nav] {
     height: 6rem;
 }
+
+#bg {
+    background: url('../images/focus-bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    min-width: 100%;
+    min-height: 70rem;
+}
